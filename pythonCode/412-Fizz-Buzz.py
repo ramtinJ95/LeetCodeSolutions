@@ -1,15 +1,15 @@
 def fizzBuzz(n: int):
     output = []
+    fizz_hash = {3: 'Fizz', 5: 'Buzz'}
+    divisors = [3, 5]
     for i in range(1, n+1):
-        if (i % 3 == 0 and i % 5 == 0):
-            output.append("FizzBuzz")
-        elif (i % 3 == 0):
-            output.append("Fizz")
-        elif (i % 5 == 0):
-            output.append("Buzz")
-        else:
-            output.append(str(i))
-
+        ans_string = []
+        for divisor in divisors:
+            if i % divisor == 0:
+                ans_string.append(fizz_hash[divisor])
+        if not ans_string:
+            ans_string.append(str(i))
+        output.append(''.join(ans_string))
     return output
 
 
